@@ -1,0 +1,14 @@
+{% extends "post_layout.html" %}
+
+{% block field %}<b>Price:</b> ${{ post.price }}<br>{% endblock field %}
+{% block buttons %}
+<div>
+	<a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('update_sell', post_id=post.id) }}">Update Post</a>
+	<button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">Delete</button>
+</div>
+{% endblock buttons %}
+{% block delete %}
+<form action="{{ url_for('delete_sell', post_id=post.id) }}" method="POST">
+	<input class="btn btn-danger" type="submit" value="Delete">
+</form>
+{% endblock delete %}

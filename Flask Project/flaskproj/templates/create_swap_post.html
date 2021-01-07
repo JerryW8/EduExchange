@@ -1,0 +1,18 @@
+{% extends "create_post_layout.html" %}
+
+{% block field %}
+<div class="form-group">
+	{{ form.want.label(class="form-control-label") }}
+	
+	{% if form.want.errors %}  
+  		{{ form.want(class="form-control form-control-default is-invalid") }}
+  		<div class="invalid-feedback">
+     		{% for errors in form.want.errors %}
+        		<span>{{ error }}</span>
+     		{% endfor %}
+  		</div>
+	{% else %}
+  		{{ form.want(class="form-control form-control-default") }}
+	{% endif %}
+</div>
+{% endblock field %}

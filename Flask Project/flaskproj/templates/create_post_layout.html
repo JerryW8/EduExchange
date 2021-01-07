@@ -1,0 +1,129 @@
+{% extends "layout.html" %}
+
+{% block content %}
+	<div class="content=section">
+		<form method = "POST" action="" enctype="multipart/form-data">
+			{{ form.hidden_tag() }}
+			<fieldset class="form-group">
+				<legend class="border-bottom mb-4">{{ legend }}</legend>
+				<div class="form-group">
+					{{ form.name.label(class="form-control-label") }}
+					
+               		{% if form.name.errors %}  
+                		{{ form.name(class="form-control form-control-default is-invalid") }}
+                  		<div class="invalid-feedback">
+                     		{% for errors in form.name.errors %}
+                        		<span>{{ error }}</span>
+                     		{% endfor %}
+                  		</div>
+               		{% else %}
+                  		{{ form.name(class="form-control form-control-default") }}
+               		{% endif %}
+				</div>
+				{% block field %}{% endblock field %}
+				<div class="form-group">
+					{{ form.desc.label(class="form-control-label") }}
+					
+               		{% if form.desc.errors %}  
+                  		{{ form.desc(class="form-control form-control-default is-invalid") }}
+                  		<div class="invalid-feedback">
+                     		{% for errors in form.desc.errors %}
+                        		<span>{{ error }}</span>
+                     		{% endfor %}
+                  		</div>
+               		{% else %}
+                  		{{ form.desc(class="form-control form-control-default") }}
+               		{% endif %}
+				</div>
+				<div>
+					Item Type
+					<br>
+						<small class="text-muted">
+							Please select all that apply
+						</small>
+					<hr>
+				</div>
+				<div class="form-check">
+					{{ form.textbook(class="form-check-input") }}
+					{{ form.textbook.label(class="form-check-label") }}
+				</div>
+				<div class="form-check">
+					{{ form.notes(class="form-check-input") }}
+					{{ form.notes.label(class="form-check-label") }}
+				</div>
+				<div class="form-check">
+					{{ form.electronics(class="form-check-input") }}
+					{{ form.electronics.label(class="form-check-label") }}
+				</div>
+				<div class="form-check">
+					{{ form.stationery(class="form-check-input") }}
+					{{ form.stationery.label(class="form-check-label") }}
+				</div>
+				<div class="form-check">
+					{{ form.clothing(class="form-check-input") }}
+					{{ form.clothing.label(class="form-check-label") }}
+				</div>
+				<div class="form-check">
+					{{ form.other(class="form-check-input") }}
+					{{ form.other.label(class="form-check-label") }}
+				</div>
+				<hr>
+				<div class="form-group">
+					{{ form.location.label(class="form-control-label") }}
+					
+	           		{% if form.location.errors %}  
+	              		{{ form.location(class="form-control form-control-default is-invalid") }}
+	              		<div class="invalid-feedback">
+	                 		{% for errors in form.location.errors %}
+	                    		<span>{{ error }}</span>
+	                 		{% endfor %}
+	              		</div>
+	           		{% else %}
+	              		{{ form.location(class="form-control form-control-default") }}
+	           		{% endif %}
+					<small class="text-muted">
+						<p>Enter the location where you wish to meet</p>
+					</small>
+				</div>
+				<div class="form-group">
+					{{ form.contact.label(class="form-control-label") }}
+					
+	           		{% if form.contact.errors %}  
+	              		{{ form.contact(class="form-control form-control-default is-invalid") }}
+	              		<div class="invalid-feedback">
+	                 		{% for errors in form.contact.errors %}
+	                    		<span>{{ error }}</span>
+	                 		{% endfor %}
+	              		</div>
+	           		{% else %}
+	              		{{ form.contact(class="form-control form-control-default") }}
+	           		{% endif %}
+				</div>
+				<div class="form-group">
+					{{ form.picture.label() }}
+					{{ form.picture(class="form-control-file") }}
+					{% if form.picture.errors %}
+							<span class="text-danger">File(s) must be of type: jpg, png</span></br>
+					{% endif %}
+				</div>
+				<div class="form-group">
+					{{ form.more.label(class="form-control-label") }}
+					
+	           		{% if form.more.errors %}  
+	              		{{ form.more(class="form-control form-control-default is-invalid") }}
+	              		<div class="invalid-feedback">
+	                 		{% for errors in form.more.errors %}
+	                    		<span>{{ error }}</span>
+	                 		{% endfor %}
+	              		</div>
+	           		{% else %}
+	              		{{ form.more(class="form-control form-control-default") }}
+	           		{% endif %}
+				</div>
+			</fieldset>
+			<div class="form-group">
+				{{ form.submit(class="btn btn-outline-info") }}
+			</div>
+		</form>
+	</div>
+{% endblock content %}
